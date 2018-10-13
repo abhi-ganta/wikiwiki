@@ -55,7 +55,7 @@ public class EditingField: UIView {
         
         inputField.textAlignment = .center
         inputField.textColor = accentColor
-        inputField.font = UIFont(name: "Helvetica Neue", size: 40)
+        inputField.font = UIFont(name: "Helvetica Neue", size: 50)
         inputField.text = ""
         addSubview(inputField)
         
@@ -76,7 +76,7 @@ public class EditingField: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 100).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
         
         inputField.translatesAutoresizingMaskIntoConstraints = false
         inputField.widthAnchor.constraint(equalTo: widthAnchor, constant: -80).isActive = true

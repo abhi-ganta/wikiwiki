@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6364FC23A87517E46E2DFF14 /* Pods_wikiwiki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */; };
 		AFE307D0217271BA004E4A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307CF217271BA004E4A48 /* AppDelegate.swift */; };
-		AFE307D2217271BA004E4A48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307D1217271BA004E4A48 /* ViewController.swift */; };
 		AFE307D5217271BA004E4A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE307D3217271BA004E4A48 /* Main.storyboard */; };
 		AFE307D7217271BB004E4A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE307D6217271BB004E4A48 /* Assets.xcassets */; };
 		AFE307DA217271BB004E4A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE307D8217271BB004E4A48 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,9 @@
 		AFE307E72172745D004E4A48 /* QuestionCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307E62172745D004E4A48 /* QuestionCreationViewController.swift */; };
 		AFE307EB217274D7004E4A48 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307EA217274D7004E4A48 /* Question.swift */; };
 		AFE307EF21727EB5004E4A48 /* wikiwiki+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307EE21727EB5004E4A48 /* wikiwiki+UIColor.swift */; };
-		AFE307F12172870E004E4A48 /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F02172870E004E4A48 /* EditingField.swift */; };
+		AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F02172870E004E4A48 /* EditingFieldView.swift */; };
+		AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */; };
+		AFE307F72172A384004E4A48 /* CategorySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F62172A384004E4A48 /* CategorySelectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,6 @@
 		33A17383AF06FC254A3F15BD /* Pods-wikiwiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wikiwiki.release.xcconfig"; path = "Pods/Target Support Files/Pods-wikiwiki/Pods-wikiwiki.release.xcconfig"; sourceTree = "<group>"; };
 		AFE307CC217271BA004E4A48 /* wikiwiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wikiwiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE307CF217271BA004E4A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFE307D1217271BA004E4A48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AFE307D4217271BA004E4A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFE307D6217271BB004E4A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFE307D9217271BB004E4A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,7 +34,9 @@
 		AFE307E62172745D004E4A48 /* QuestionCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCreationViewController.swift; sourceTree = "<group>"; };
 		AFE307EA217274D7004E4A48 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		AFE307EE21727EB5004E4A48 /* wikiwiki+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "wikiwiki+UIColor.swift"; sourceTree = "<group>"; };
-		AFE307F02172870E004E4A48 /* EditingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditingField.swift; path = wikiwiki/Question/EditingField.swift; sourceTree = SOURCE_ROOT; };
+		AFE307F02172870E004E4A48 /* EditingFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditingFieldView.swift; path = wikiwiki/Question/EditingFieldView.swift; sourceTree = SOURCE_ROOT; };
+		AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveQuestionViewController.swift; sourceTree = "<group>"; };
+		AFE307F62172A384004E4A48 /* CategorySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectView.swift; sourceTree = "<group>"; };
 		ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wikiwiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,7 +87,6 @@
 				AFE307E321727427004E4A48 /* DataFetcher */,
 				AFE307E2217273D9004E4A48 /* ViewControllers */,
 				AFE307CF217271BA004E4A48 /* AppDelegate.swift */,
-				AFE307D1217271BA004E4A48 /* ViewController.swift */,
 				AFE307D3217271BA004E4A48 /* Main.storyboard */,
 				AFE307D6217271BB004E4A48 /* Assets.xcassets */,
 				AFE307D8217271BB004E4A48 /* LaunchScreen.storyboard */,
@@ -98,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				AFE307E62172745D004E4A48 /* QuestionCreationViewController.swift */,
-				AFE307F02172870E004E4A48 /* EditingField.swift */,
+				AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */,
+				AFE307F02172870E004E4A48 /* EditingFieldView.swift */,
+				AFE307F62172A384004E4A48 /* CategorySelectView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,9 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE307E521727433004E4A48 /* DataFetcher.swift in Sources */,
-				AFE307D2217271BA004E4A48 /* ViewController.swift in Sources */,
 				AFE307EB217274D7004E4A48 /* Question.swift in Sources */,
-				AFE307F12172870E004E4A48 /* EditingField.swift in Sources */,
+				AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */,
+				AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */,
+				AFE307F72172A384004E4A48 /* CategorySelectView.swift in Sources */,
 				AFE307D0217271BA004E4A48 /* AppDelegate.swift in Sources */,
 				AFE307EF21727EB5004E4A48 /* wikiwiki+UIColor.swift in Sources */,
 				AFE307E72172745D004E4A48 /* QuestionCreationViewController.swift in Sources */,
