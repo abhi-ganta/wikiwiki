@@ -32,15 +32,15 @@ public class Question: QuestionProtocol {
     }
     
     public func send() {
-        let dataManager = DataFetcher(url: "")
+        let dataManager = DataFetcher(url: "https://bom29zmpy6.execute-api.us-west-1.amazonaws.com/default/mh-create-question")
         dataManager.postData(dataToSend: compiledData())
     }
     
     private func compiledData() -> JSON {
         let data: JSON = [
-            "question"  : question,
-            "choice_1"  : choice_1,
-            "choice_2"  : choice_2
+            "option1"  : choice_1,
+            "option2"  : choice_2,
+            "question" : question
         ]
         
         return data
