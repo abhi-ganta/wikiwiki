@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class EditingField: UIView {
+public class EditingField: UIView, ContentViewProtocol {
     
     private var titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     private var inputField: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))

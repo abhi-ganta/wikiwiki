@@ -17,7 +17,7 @@ public protocol QuestionCreationDelegate {
 public class QuestionCreationViewController: UIViewController {
     
     private var count = 0
-    private var editingView: EditingField = EditingField(title: "", actionLabel: "", color: UIColor.wikiwiki.blue.color())
+    private var editingView: ContentViewProtocol = EditingField(title: "", actionLabel: "", color: UIColor.wikiwiki.blue.color())
     private var question: Question = Question(question: "", choice_1: "", choice_2: "")
     private var progressBar: UIView = UIView()
     

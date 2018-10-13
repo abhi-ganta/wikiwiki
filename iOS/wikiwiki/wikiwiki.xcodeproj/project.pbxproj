@@ -19,6 +19,8 @@
 		AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F02172870E004E4A48 /* EditingFieldView.swift */; };
 		AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */; };
 		AFE307F72172A384004E4A48 /* CategorySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F62172A384004E4A48 /* CategorySelectView.swift */; };
+		AFE307F92172A53E004E4A48 /* SelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307F82172A53E004E4A48 /* SelectionRow.swift */; };
+		AFE307FB2172A8C5004E4A48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307FA2172A8C5004E4A48 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		AFE307F02172870E004E4A48 /* EditingFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditingFieldView.swift; path = wikiwiki/Question/EditingFieldView.swift; sourceTree = SOURCE_ROOT; };
 		AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveQuestionViewController.swift; sourceTree = "<group>"; };
 		AFE307F62172A384004E4A48 /* CategorySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectView.swift; sourceTree = "<group>"; };
+		AFE307F82172A53E004E4A48 /* SelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRow.swift; sourceTree = "<group>"; };
+		AFE307FA2172A8C5004E4A48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wikiwiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,8 +104,10 @@
 			children = (
 				AFE307E62172745D004E4A48 /* QuestionCreationViewController.swift */,
 				AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */,
+				AFE307FA2172A8C5004E4A48 /* ContentView.swift */,
 				AFE307F02172870E004E4A48 /* EditingFieldView.swift */,
 				AFE307F62172A384004E4A48 /* CategorySelectView.swift */,
+				AFE307F82172A53E004E4A48 /* SelectionRow.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -264,7 +270,9 @@
 				AFE307EB217274D7004E4A48 /* Question.swift in Sources */,
 				AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */,
 				AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */,
+				AFE307F92172A53E004E4A48 /* SelectionRow.swift in Sources */,
 				AFE307F72172A384004E4A48 /* CategorySelectView.swift in Sources */,
+				AFE307FB2172A8C5004E4A48 /* ContentView.swift in Sources */,
 				AFE307D0217271BA004E4A48 /* AppDelegate.swift in Sources */,
 				AFE307EF21727EB5004E4A48 /* wikiwiki+UIColor.swift in Sources */,
 				AFE307E72172745D004E4A48 /* QuestionCreationViewController.swift in Sources */,

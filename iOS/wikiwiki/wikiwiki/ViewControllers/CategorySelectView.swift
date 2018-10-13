@@ -9,16 +9,22 @@
 import Foundation
 import UIKit
 
-public class CategorySelectView: UIView {
+public class CategorySelectView: UIView, ContentViewProtocol {
     
     private var titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     private let actionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     private var accentColor: UIColor = UIColor()
+    private var rows: [SelectionRow]!
     
     public var delegate: QuestionCreationDelegate?
     
     public init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        rows[0] = SelectionRow(option: "Entertainment")
+        rows[1] = SelectionRow(option: "Shopping")
+        rows[2] = SelectionRow(option: "Food")
+        rows[3] = SelectionRow(option: "Activity")
+        rows[4] = SelectionRow(option: "Other")
     }
     
     @objc
@@ -43,6 +49,10 @@ public class CategorySelectView: UIView {
         actionButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
         
         addSubview(actionButton)
+        
+        rows.forEach {
+            addSubview($0)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
