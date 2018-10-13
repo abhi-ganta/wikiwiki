@@ -36,8 +36,8 @@ public class Question: QuestionProtocol {
         dataManager.postData(dataToSend: compiledData())
     }
     
-    private func compiledData() -> JSON {
-        let data: JSON = [
+    private func compiledData() -> [String: String] {
+        let data = [
             "option1"  : choice_1,
             "option2"  : choice_2,
             "question" : question

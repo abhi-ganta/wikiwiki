@@ -41,19 +41,13 @@ public class DataFetcher {
         }
     }
     
-    public func postData(dataToSend data: JSON) {
-        
-        print(data)
-        
-        if let data = data.rawString()!.data(using: .utf8) {
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                Alamofire.request(URL, method: .get, parameters: json, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
-                    debugPrint(response)
-                }
-            } catch {
-                print("JSONSerialization error")
+    public func postData(dataToSend data: [String: String]) {
+        do {
+            Alamofire.request(URL, method: .get, parameters: data, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { response in
+                debugPrint(response)
             }
+        } catch {
+            print("JSONSerialization error")
         }
 
     }
