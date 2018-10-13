@@ -45,31 +45,36 @@ public class QuestionCreationViewController: UIViewController {
     fileprivate func presentNext() {
         switch count {
         case 1:
-            UIView.animate(withDuration: 0.5, animations: {
-                self.editingView.alpha = 0
-            }, completion: { success in
-                self.editingView.removeFromSuperview()
-                
+            removeCurrent {
                 self.editingView = EditingField(title: "Enter Option 1", actionLabel: "Add Option 2", color: UIColor.wikiwiki.red.color())
-                self.editingView.delegate = self
-                self.view.addSubview(self.editingView)
-                self.setUpConstraints()
-            })
-
+                self.addNextView()
+            }
         case 2:
-            UIView.animate(withDuration: 0.5, animations: {
-                self.editingView.alpha = 0
-            }, completion: { success in
-                self.editingView.removeFromSuperview()
-                
-                self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Finish", color: UIColor.wikiwiki.red.color())
-                self.editingView.delegate = self
-                self.view.addSubview(self.editingView)
-                self.setUpConstraints()
-            })
+            removeCurrent {
+                self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Finish", color: UIColor.wikiwiki.green.color())
+                self.addNextView()
+            }
+        case 3:
+            removeCurrent {}
+            print("finished")
         default:
             break
         }
+    }
+    
+    private func removeCurrent(completion: @escaping () -> ()) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.editingView.alpha = 0
+        }, completion: { success in
+            self.editingView.removeFromSuperview()
+            completion()
+        })
+    }
+    
+    private func addNextView() {
+        self.editingView.delegate = self
+        self.view.addSubview(self.editingView)
+        self.setUpConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
