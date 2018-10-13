@@ -42,14 +42,9 @@ public class DataFetcher {
     }
     
     public func postData(dataToSend data: [String: String]) {
-        do {
-            Alamofire.request(URL, method: .get, parameters: data, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { response in
-                debugPrint(response)
-            }
-        } catch {
-            print("JSONSerialization error")
+        Alamofire.request(URL, method: .get, parameters: data, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { response in
+            debugPrint(response)
         }
-
     }
     
     private func dataReceived() {
