@@ -1,0 +1,3 @@
+#!/Users/Abhi/Documents/GitHub/wikiwiki/Django/wikienv/bin/python3
+from numba.pycc import main
+main()
