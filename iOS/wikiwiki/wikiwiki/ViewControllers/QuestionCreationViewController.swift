@@ -9,82 +9,84 @@
 import Foundation
 import UIKit
 
+public protocol QuestionCreationDelegate {
+    func pressedAction(enteredContent: String)
+    func presentError()
+}
+
 public class QuestionCreationViewController: UIViewController {
     
-    private var titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    private var inputField: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    private let actionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-    private var accentColor: UIColor = UIColor()
-
-    public init(title: String, actionLabel: String, color: UIColor) {
+    private var count = 0
+    private var editingView: EditingField = EditingField(title: "", actionLabel: "", color: UIColor.wikiwiki.blue.color())
+    
+    public init() {
         super.init(nibName: nil, bundle: nil)
-        self.titleLabel.text =  title
-        self.actionButton.setTitle(actionLabel, for: .normal)
-        self.accentColor = color
     }
     
     public override func viewDidLoad() {
         view.backgroundColor = .white
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        view.addGestureRecognizer(tapGesture)
-        
         setUpView()
         setUpConstraints()
     }
     
-    @objc
-    private func tapped() {
-        print("tapped")
-        inputField.resignFirstResponder()
-    }
-    
     private func setUpView() {
-        titleLabel.text = "Enter Your Question"
-        titleLabel.font = UIFont(name: "Helvetica Neue", size: 30)
-        titleLabel.textColor = accentColor
-        titleLabel.textAlignment = .center
-        view.addSubview(titleLabel)
-        
-        inputField.textAlignment = .center
-        inputField.textColor = accentColor
-        inputField.font = UIFont(name: "Helvetica Neue", size: 40)
-        inputField.text = ""
-        view.addSubview(inputField)
-
-        actionButton.setTitle("Add Options", for: .normal)
-        actionButton.setTitleColor(accentColor, for: .normal)
-        actionButton.setTitleColor(.white, for: .highlighted)
-        actionButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 20)
-        actionButton.backgroundColor = .clear
-        actionButton.layer.borderWidth = 1
-        actionButton.layer.borderColor = accentColor.cgColor
-        actionButton.layer.cornerRadius = 5
-
-        view.addSubview(actionButton)
+        editingView = EditingField(title: "Enter Your Question", actionLabel: "Add Options", color: UIColor.wikiwiki.blue.color())
+        editingView.delegate = self
+        view.addSubview(editingView)
     }
     
     private func setUpConstraints() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        
-        inputField.translatesAutoresizingMaskIntoConstraints = false
-        inputField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -80).isActive = true
-        inputField.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        inputField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        inputField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        inputField.becomeFirstResponder()
-        
-        actionButton.translatesAutoresizingMaskIntoConstraints = false
-        actionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
+        editingView.translatesAutoresizingMaskIntoConstraints = false
+        editingView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        editingView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+    }
+    
+    fileprivate func presentNext() {
+        switch count {
+        case 1:
+            UIView.animate(withDuration: 0.5, animations: {
+                self.editingView.alpha = 0
+            }, completion: { success in
+                self.editingView.removeFromSuperview()
+                
+                self.editingView = EditingField(title: "Enter Option 1", actionLabel: "Add Option 2", color: UIColor.wikiwiki.red.color())
+                self.editingView.delegate = self
+                self.view.addSubview(self.editingView)
+                self.setUpConstraints()
+            })
+
+        case 2:
+            UIView.animate(withDuration: 0.5, animations: {
+                self.editingView.alpha = 0
+            }, completion: { success in
+                self.editingView.removeFromSuperview()
+                
+                self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Finish", color: UIColor.wikiwiki.red.color())
+                self.editingView.delegate = self
+                self.view.addSubview(self.editingView)
+                self.setUpConstraints()
+            })
+        default:
+            break
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension QuestionCreationViewController: QuestionCreationDelegate {
+    public func presentError() {
+        let alert = UIAlertController(title: "Error", message: "Please Enter Something", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    public func pressedAction(enteredContent content: String) {
+        print("received event: \(content)")
+        count += 1
+        presentNext()
     }
 }
