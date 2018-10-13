@@ -1,6 +1,6 @@
 //
 //  DataFetcher.swift
-//  HubSpot
+//  wikiwiki
 //
 //  Created by Brian Lin on 8/23/18.
 //
@@ -48,7 +48,7 @@ public class DataFetcher {
         if let data = data.rawString()!.data(using: .utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                Alamofire.request(URL, method: .post, parameters: json, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+                Alamofire.request(URL, method: .get, parameters: json, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
                     debugPrint(response)
                 }
             } catch {

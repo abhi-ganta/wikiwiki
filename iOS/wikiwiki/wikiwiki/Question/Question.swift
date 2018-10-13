@@ -14,6 +14,7 @@ public protocol QuestionProtocol {
     var choice_1: String { get set }
     var choice_2: String { get set }
     var question_id: String? { get }
+    var remainingSeconds: String? { get }
 }
 
 public class Question: QuestionProtocol {
@@ -22,6 +23,7 @@ public class Question: QuestionProtocol {
     public var choice_1: String
     public var choice_2: String
     public private(set) var question_id: String?
+    public private(set) var remainingSeconds: String?
     
     public init(question: String, choice_1: String, choice_2: String) {
         self.question = question
