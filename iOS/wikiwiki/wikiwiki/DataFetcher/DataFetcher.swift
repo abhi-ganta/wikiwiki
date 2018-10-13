@@ -41,12 +41,11 @@ public class DataFetcher {
         }
     }
     
-    public func postData(dataToSend: [JSON]) {
+    public func postData(dataToSend data: JSON) {
         
-        let parameters: JSON = ["countries": dataToSend]
-        print(parameters)
+        print(data)
         
-        if let data = parameters.rawString()!.data(using: .utf8) {
+        if let data = data.rawString()!.data(using: .utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 Alamofire.request(URL, method: .post, parameters: json, encoding: JSONEncoding.default, headers: nil).responseJSON { response in

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 public protocol QuestionProtocol {
     var question: String { get set }
@@ -30,6 +31,16 @@ public class Question: QuestionProtocol {
     
     public func send() {
         let dataManager = DataFetcher(url: "")
-        dataManager.postData(dataToSend: [])
+        dataManager.postData(dataToSend: compiledData())
+    }
+    
+    private func compiledData() -> JSON {
+        let data: JSON = [
+            "question"  : question,
+            "choice_1"  : choice_1,
+            "choice_2"  : choice_2
+        ]
+        
+        return data
     }
 }
