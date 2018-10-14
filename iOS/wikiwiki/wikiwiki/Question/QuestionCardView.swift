@@ -21,6 +21,9 @@ public class QuestionCardView: UIView {
 //        titleLabel.text = question.question
         titleLabel.text = "This is a really really really long question that needs answers"
         subtitleLabel.text = "Waiting for responses..."
+        choice1label.text = "this is option 1"
+        choice2label.text = "this is option 2"
+
         backgroundColor = color
         
         setUpViews()
@@ -40,6 +43,18 @@ public class QuestionCardView: UIView {
         subtitleLabel.textColor = .white
         subtitleLabel.textAlignment = .left
         addSubview(subtitleLabel)
+        
+        choice1label.font = UIFont(name: "Helvetica Neue", size: 15)
+        choice1label.textColor = .white
+        choice1label.textAlignment = .left
+        choice1label.numberOfLines = 0
+        addSubview(choice1label)
+        
+        choice2label.font = UIFont(name: "Helvetica Neue", size: 15)
+        choice2label.textColor = .white
+        choice2label.textAlignment = .left
+        choice2label.numberOfLines = 0
+        addSubview(choice2label)
     }
     
     private func setUpConstraints() {
@@ -53,6 +68,18 @@ public class QuestionCardView: UIView {
         titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10).isActive = true
+        
+        choice1label.translatesAutoresizingMaskIntoConstraints = false
+        choice1label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        choice1label.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
+        choice1label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        choice1label.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        
+        choice2label.translatesAutoresizingMaskIntoConstraints = false
+        choice2label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        choice2label.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
+        choice2label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        choice2label.topAnchor.constraint(equalTo: choice1label.bottomAnchor, constant: 5).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
