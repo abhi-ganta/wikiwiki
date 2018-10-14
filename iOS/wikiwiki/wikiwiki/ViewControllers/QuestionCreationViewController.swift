@@ -11,6 +11,7 @@ import UIKit
 
 public protocol QuestionCreationDelegate {
     func pressedAction(enteredContent: String)
+    func pressedAction(enteredContentDictionary: [Category])
     func presentError()
 }
 
@@ -136,6 +137,10 @@ public class QuestionCreationViewController: UIViewController {
 }
 
 extension QuestionCreationViewController: QuestionCreationDelegate {
+    public func pressedAction(enteredContentDictionary: [String : String]) {
+        <#code#>
+    }
+    
     public func presentError() {
         let alert = UIAlertController(title: "Error", message: "Please Enter Something", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))

@@ -26,6 +26,10 @@ public class CategorySelectView: ContentView {
         setUpConstraints()
     }
     
+    private func compiledData() -> [Category] {
+        
+    }
+    
     @objc
     private func tappedButton() {
         delegate?.pressedAction(enteredContent: "")
