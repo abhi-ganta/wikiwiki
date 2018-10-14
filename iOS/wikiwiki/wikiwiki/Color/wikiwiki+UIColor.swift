@@ -27,4 +27,21 @@ extension UIColor {
             }
         }
     }
+    
+    public class func wikiwiki_randomColor() -> UIColor {
+        let random = Int.random(in: 0 ..< 100)
+        
+        switch random % 4 {
+        case 0:
+            return UIColor.wikiwiki.red.color()
+        case 1:
+            return UIColor.wikiwiki.blue.color()
+        case 2:
+            return UIColor.wikiwiki.purple.color()
+        case 4:
+            return UIColor.wikiwiki.orange.color()
+        default:
+            return UIColor.wikiwiki.orange.color()
+        }
+    }
 }

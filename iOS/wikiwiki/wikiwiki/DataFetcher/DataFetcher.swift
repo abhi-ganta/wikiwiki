@@ -47,6 +47,20 @@ public class DataFetcher {
         }
     }
     
+    public func voteAndGetData(dataToSend data: [String: String]) -> JSON? {
+        var dataToBounceBack: JSON?
+        Alamofire.request(URL, method: .get, parameters: data, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { response in
+            if let result = response.result.value, response.error == nil {
+                dataToBounceBack = JSON(result)
+            } else {
+                print(response.error as! String)
+            }
+            debugPrint(response)
+        }
+        
+        return dataToBounceBack
+    }
+    
     private func dataReceived() {
         delegate?.didReceiveData()
     }

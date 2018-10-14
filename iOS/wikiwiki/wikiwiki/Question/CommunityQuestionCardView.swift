@@ -15,13 +15,16 @@ public class CommunityQuestionCardView: UIView {
     private var choice1: SelectionRow
     private var choice2: SelectionRow
     
+    private var question_stored: Question
+    
     public init(question: Question, color: UIColor) {
+        question_stored = question
         choice1 = SelectionRow(option: question.choice_1, accent: .white)
         choice2 = SelectionRow(option: question.choice_2, accent: .white)
 
         super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         titleLabel.text = question.question
-        subtitleLabel.text = "Waiting for responses..."
+        subtitleLabel.text = ""
         choice1.delegate = self
         choice2.delegate = self
         backgroundColor = color
@@ -65,7 +68,7 @@ public class CommunityQuestionCardView: UIView {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -80).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10).isActive = true
         
@@ -88,9 +91,11 @@ public class CommunityQuestionCardView: UIView {
     
     private func dismiss() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 1, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.center.x -= 500
 //                self.alpha = 0
+            }, completion: { success in
+                self.removeFromSuperview()
             })
         }
     }
@@ -99,7 +104,20 @@ public class CommunityQuestionCardView: UIView {
 extension CommunityQuestionCardView: SelectionRowDelegateProtocol {
     public func pressedSelecionButton() {
         print("selected")
-        dismiss()
+        if choice1.selected {
+            question_stored.selectedOption = 1
+        } else if choice2.selected {
+            question_stored.selectedOption = 2
+        }
+//        print(question_stored.vote())
+        let random100 = Int.random(in: 0 ..< 100)
+        choice1.categoryLabel.text = "\(random100)%"
+        choice2.categoryLabel.text = "\(100-random100)%"
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.dismiss()
+
+        })
     }
     
     
