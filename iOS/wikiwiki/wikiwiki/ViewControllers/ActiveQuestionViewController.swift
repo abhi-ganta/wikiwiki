@@ -10,8 +10,30 @@ import Foundation
 import UIKit
 
 public class ActiveQuestionViewController: UIViewController {
-    public convenience init(actionQuestion: Question) {
+    
+    private var activeCardView: QuestionCardView!
+    
+    public convenience init(activeQuestion: Question) {
         self.init(nibName: nil, bundle: nil)
         
+        activeCardView = QuestionCardView(question: activeQuestion, color: UIColor.wikiwiki.orange.color())
+    }
+    
+    public override func viewDidLoad() {
+        view.backgroundColor = .white
+        setUpView()
+        setUpConstraints()
+    }
+    
+    private func setUpView() {
+        view.addSubview(activeCardView)
+    }
+    
+    private func setUpConstraints() {
+        activeCardView.translatesAutoresizingMaskIntoConstraints = false
+        activeCardView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
+        activeCardView.heightAnchor.constraint(equalToConstant: view.frame.height/2).isActive = true
+        activeCardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        activeCardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }

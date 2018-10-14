@@ -94,10 +94,10 @@ public class QuestionCreationViewController: UIViewController {
             }
         case 4:
             removeCurrent {
-                question.send()
+                self.question.send()
                 print("finished")
 
-
+                
             }
         default:
             break
