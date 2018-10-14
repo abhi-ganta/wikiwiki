@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let viewController = QuestionCreationViewController()
-//        let mockQuestion = Question(question: "test", choice_1: "1", choice_2: "2")
-//        let viewController = ActiveQuestionViewController(activeQuestion: mockQuestion)
+//        let viewController = QuestionCreationViewController()
+        let mockQuestion = Question(question: "test", choice_1: "1", choice_2: "2")
+        let viewController = QuestionViewerViewController(questions: [mockQuestion])
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = viewController
