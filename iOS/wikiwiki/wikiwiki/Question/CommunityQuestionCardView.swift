@@ -29,8 +29,17 @@ public class CommunityQuestionCardView: UIView {
         choice2.delegate = self
         backgroundColor = color
         
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipedUp))
+        swipe.direction = .up
+        addGestureRecognizer(swipe)
+        
         setUpViews()
         setUpConstraints()
+    }
+    
+    @objc
+    private func swipedUp() {
+        print("swipe")
     }
     
     private func setUpViews() {
