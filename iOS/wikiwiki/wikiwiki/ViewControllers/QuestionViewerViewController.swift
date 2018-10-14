@@ -8,13 +8,26 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 public class QuestionViewerViewController: UIViewController {
-    var questionCards: [CommunityQuestionCardView] = [CommunityQuestionCardView]()
-    
-    public init(questions: [Question]) {
+    private var questionCards: [CommunityQuestionCardView] = [CommunityQuestionCardView]()
+    fileprivate let fetcher = DataFetcher(url: "https://bom29zmpy6.execute-api.us-west-1.amazonaws.com/default/mh-retrieve?uid=brian")
+
+    public init() {
         super.init(nibName: nil, bundle: nil)
-        populateCards(questions: questions)
+        fetcher.delegate = self
+        fetcher.getData()
+    }
+    
+    private func retrievedData(data: JSON) -> [Question] {
+        var questions = [Question]()
+        let cardsArray = data["finalCardArr"].arrayValue
+        for card in cardsArray {
+            questions.append(Question(question: card["question"].stringValue, choice_1: card["option1"].stringValue, choice_2: card["option2"].stringValue, uid: card["uid"].stringValue))
+        }
+        
+        return questions
     }
     
     public override func viewDidLoad() {
@@ -27,6 +40,8 @@ public class QuestionViewerViewController: UIViewController {
         questions.forEach {
             questionCards.append(CommunityQuestionCardView(question: $0, color: UIColor.wikiwiki.orange.color()))
         }
+        setupViews()
+        setupConstraints()
     }
     
     private func setupViews() {
@@ -47,5 +62,12 @@ public class QuestionViewerViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension QuestionViewerViewController: DataFetcherDelegateProtocol {
+    public func didReceiveData() {
+        print(fetcher.data)
+        populateCards(questions: retrievedData(data: fetcher.data!))
     }
 }
