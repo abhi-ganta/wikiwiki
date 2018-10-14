@@ -14,9 +14,12 @@ public class SelectionRow: UIView {
     public var categoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
 
     public var selected: Bool = false
-    private var accentColor: UIColor = UIColor.wikiwiki.purple.color()
+    private var accentColor: UIColor
+
+    public var delegate: SelectionRowDelegateProtocol?
     
-    public init(option: String) {
+    public init(option: String, accent: UIColor) {
+        self.accentColor = accent
         super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         categoryLabel.text = option
         setUpViews()
@@ -46,7 +49,7 @@ public class SelectionRow: UIView {
     
     public func setUpConstraints() {
         selectionButton.translatesAutoresizingMaskIntoConstraints = false
-        selectionButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 110).isActive = true
+        selectionButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
         selectionButton.heightAnchor.constraint(equalTo: heightAnchor, constant: -20).isActive = true
         selectionButton.widthAnchor.constraint(equalTo: heightAnchor, constant: -20).isActive = true
         selectionButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -60,12 +63,14 @@ public class SelectionRow: UIView {
     private func setSelected() {
         UIView.animate(withDuration: 0.3, animations: {
             self.selectionButton.backgroundColor = self.accentColor
+        }, completion: { success in 
+            self.delegate?.pressedSelecionButton()
         })
     }
     
     private func setNotSelected() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.selectionButton.backgroundColor = .white
+            self.selectionButton.backgroundColor = .clear
             self.selectionButton.layer.borderColor = self.accentColor.cgColor
         })
     }

@@ -16,13 +16,14 @@ public class CommunityQuestionCardView: UIView {
     private var choice2: SelectionRow
     
     public init(question: Question, color: UIColor) {
-        choice1 = SelectionRow(option: question.choice_1)
-        choice2 = SelectionRow(option: question.choice_2)
+        choice1 = SelectionRow(option: question.choice_1, accent: .white)
+        choice2 = SelectionRow(option: question.choice_2, accent: .white)
 
         super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         titleLabel.text = question.question
         subtitleLabel.text = "Waiting for responses..."
-        
+        choice1.delegate = self
+        choice2.delegate = self
         backgroundColor = color
         
         setUpViews()
@@ -69,19 +70,37 @@ public class CommunityQuestionCardView: UIView {
         titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10).isActive = true
         
         choice1.translatesAutoresizingMaskIntoConstraints = false
-        choice1.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        choice1.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
-        choice1.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        choice1.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        choice1.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        choice1.widthAnchor.constraint(equalTo: widthAnchor, constant: -20).isActive = true
+        choice1.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        choice1.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         
         choice2.translatesAutoresizingMaskIntoConstraints = false
-        choice2.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        choice2.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
-        choice2.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        choice2.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        choice2.widthAnchor.constraint(equalTo: widthAnchor, constant: -20).isActive = true
+        choice2.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         choice2.topAnchor.constraint(equalTo: choice1.bottomAnchor, constant: 5).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func dismiss() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 1, animations: {
+                self.center.x -= 500
+                self.alpha = 0
+            })
+        }
+    }
+}
+
+extension CommunityQuestionCardView: SelectionRowDelegateProtocol {
+    public func pressedSelecionButton() {
+        print("selected")
+        dismiss()
+    }
+    
+    
 }

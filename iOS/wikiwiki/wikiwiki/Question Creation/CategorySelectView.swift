@@ -15,13 +15,13 @@ public class CategorySelectView: ContentView {
     private let actionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     private var accentColor: UIColor = UIColor.wikiwiki.purple.color()
     private var rows: [SelectionRow] = [
-        SelectionRow(option: "Activities"),
-        SelectionRow(option: "Education"),
-        SelectionRow(option: "Entertainment"),
-        SelectionRow(option: "Food"),
-        SelectionRow(option: "Shopping"),
-        SelectionRow(option: "Tech"),
-        SelectionRow(option: "Other")
+        SelectionRow(option: "Activities", accent: UIColor.wikiwiki.purple.color()),
+        SelectionRow(option: "Education", accent: UIColor.wikiwiki.purple.color()),
+        SelectionRow(option: "Entertainment", accent: UIColor.wikiwiki.purple.color()),
+        SelectionRow(option: "Food", accent: UIColor.wikiwiki.purple.color()),
+        SelectionRow(option: "Shopping", accent: UIColor.wikiwiki.purple.color()),
+        SelectionRow(option: "Tech", accent: UIColor.wikiwiki.purple.color()),
+        SelectionRow(option: "Other", accent: UIColor.wikiwiki.purple.color())
     ]
     
     public init(withOption: String) {
@@ -66,14 +66,14 @@ public class CategorySelectView: ContentView {
         
         rows[0].translatesAutoresizingMaskIntoConstraints = false
         rows[0].widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        rows[0].leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        rows[0].leftAnchor.constraint(equalTo: leftAnchor, constant: 60).isActive = true
         rows[0].heightAnchor.constraint(equalToConstant: 60).isActive = true
         rows[0].topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
         
         for i in 1..<7 {
             rows[i].translatesAutoresizingMaskIntoConstraints = false
             rows[i].widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-            rows[i].leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            rows[i].leftAnchor.constraint(equalTo: leftAnchor, constant: 60).isActive = true
             rows[i].heightAnchor.constraint(equalToConstant: 60).isActive = true
             rows[i].topAnchor.constraint(equalTo: rows[i-1].bottomAnchor, constant: 10).isActive = true
         }

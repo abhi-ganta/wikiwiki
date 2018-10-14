@@ -26,6 +26,7 @@
 		D7B24B6C217324A300B4BCA6 /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */; };
 		D7B24B6E21732E4100B4BCA6 /* CommunityQuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6D21732E4100B4BCA6 /* CommunityQuestionCardView.swift */; };
 		D7B24B70217331AD00B4BCA6 /* QuestionViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6F217331AD00B4BCA6 /* QuestionViewerViewController.swift */; };
+		D7B24B722173388A00B4BCA6 /* SelectionRowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B712173388900B4BCA6 /* SelectionRowProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
 		D7B24B6D21732E4100B4BCA6 /* CommunityQuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityQuestionCardView.swift; sourceTree = "<group>"; };
 		D7B24B6F217331AD00B4BCA6 /* QuestionViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewerViewController.swift; sourceTree = "<group>"; };
+		D7B24B712173388900B4BCA6 /* SelectionRowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowProtocol.swift; sourceTree = "<group>"; };
 		ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wikiwiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 				AFE307F02172870E004E4A48 /* EditingFieldView.swift */,
 				AFE307F62172A384004E4A48 /* CategorySelectView.swift */,
 				AFE307F82172A53E004E4A48 /* SelectionRow.swift */,
+				D7B24B712173388900B4BCA6 /* SelectionRowProtocol.swift */,
 			);
 			path = "Question Creation";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				AFE307EB217274D7004E4A48 /* Question.swift in Sources */,
 				D7B24B6921731A5A00B4BCA6 /* QuestionCardView.swift in Sources */,
 				D7B24B6621730EF000B4BCA6 /* Category.swift in Sources */,
+				D7B24B722173388A00B4BCA6 /* SelectionRowProtocol.swift in Sources */,
 				D7B24B6C217324A300B4BCA6 /* WaitingAnimation.swift in Sources */,
 				AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */,
 				AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */,

@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 
 public class QuestionViewerViewController: UIViewController {
-    var questionViewerView: CommunityQuestionCardView
-    private var questions: [Question]
+    var questionCards: [CommunityQuestionCardView] = [CommunityQuestionCardView]()
     
     public init(questions: [Question]) {
-        self.questions = questions
-        self.questionViewerView = CommunityQuestionCardView(question: questions[0], color: UIColor.wikiwiki.orange.color())
         super.init(nibName: nil, bundle: nil)
+        populateCards(questions: questions)
     }
     
     public override func viewDidLoad() {
@@ -25,16 +23,26 @@ public class QuestionViewerViewController: UIViewController {
         setupConstraints()
     }
     
-    public func setupViews() {
-        view.addSubview(questionViewerView)
+    private func populateCards(questions: [Question]) {
+        questions.forEach {
+            questionCards.append(CommunityQuestionCardView(question: $0, color: UIColor.wikiwiki.orange.color()))
+        }
     }
     
-    public func setupConstraints() {
-        questionViewerView.translatesAutoresizingMaskIntoConstraints = false
-        questionViewerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -80).isActive = true
-        questionViewerView.heightAnchor.constraint(equalToConstant: 400).isActive = true
-        questionViewerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        questionViewerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    private func setupViews() {
+        questionCards.forEach {
+            view.addSubview($0)
+        }
+    }
+    
+    private func setupConstraints() {
+        questionCards.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -80).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: 400).isActive = true
+            $0.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            $0.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
