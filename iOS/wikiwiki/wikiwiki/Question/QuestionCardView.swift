@@ -63,7 +63,7 @@ public class QuestionCardView: UIView {
         subtitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10).isActive = true

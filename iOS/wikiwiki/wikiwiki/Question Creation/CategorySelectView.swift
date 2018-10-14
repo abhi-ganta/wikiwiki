@@ -75,7 +75,7 @@ public class CategorySelectView: ContentView {
             rows[i].widthAnchor.constraint(equalTo: widthAnchor).isActive = true
             rows[i].leftAnchor.constraint(equalTo: leftAnchor, constant: 60).isActive = true
             rows[i].heightAnchor.constraint(equalToConstant: 60).isActive = true
-            rows[i].topAnchor.constraint(equalTo: rows[i-1].bottomAnchor, constant: 10).isActive = true
+            rows[i].topAnchor.constraint(equalTo: rows[i-1].bottomAnchor, constant: 2).isActive = true
         }
     }
     
