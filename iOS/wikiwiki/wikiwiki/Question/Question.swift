@@ -13,9 +13,11 @@ public protocol QuestionProtocol {
     var question: String { get set }
     var choice_1: String { get set }
     var choice_2: String { get set }
+    var uid: String { get set }
     var categories: [Category]? { get set }
     var question_id: String? { get }
     var remainingSeconds: String? { get }
+    var selectedOption: Int { get set }
 }
 
 public class Question: QuestionProtocol {
@@ -23,19 +25,27 @@ public class Question: QuestionProtocol {
     public var question: String
     public var choice_1: String
     public var choice_2: String
+    public var selectedOption: Int
+    public var uid: String
     public private(set) var question_id: String?
     public private(set) var remainingSeconds: String?
     public var categories: [Category]?
     
-    public init(question: String, choice_1: String, choice_2: String) {
+    public init(question: String, choice_1: String, choice_2: String, uid: String) {
         self.question = question
         self.choice_1 = choice_1
         self.choice_2 = choice_2
+        self.uid = uid
+        self.selectedOption = 0
     }
     
     public func send() {
         let dataManager = DataFetcher(url: "https://bom29zmpy6.execute-api.us-west-1.amazonaws.com/default/mh-create-question")
         dataManager.postData(dataToSend: compiledData())
+    }
+    
+    public func vote() {
+        let manager = DataFetcher(url: "https://bom29zmpy6.execute-api.us-west-1.amazonaws.com/default/mh-vote")
     }
     
     private func compiledData() -> [String: String] {
@@ -47,6 +57,7 @@ public class Question: QuestionProtocol {
             "option1"   : choice_1,
             "option2"   : choice_2,
             "question"  : question,
+            "uid"       : "joseph",
             "c0"        : categories[0].selected_binary(),
             "c1"        : categories[1].selected_binary(),
             "c2"        : categories[2].selected_binary(),

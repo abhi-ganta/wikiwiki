@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6364FC23A87517E46E2DFF14 /* Pods_wikiwiki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */; };
 		AFE307D0217271BA004E4A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307CF217271BA004E4A48 /* AppDelegate.swift */; };
-		AFE307D5217271BA004E4A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE307D3217271BA004E4A48 /* Main.storyboard */; };
 		AFE307D7217271BB004E4A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE307D6217271BB004E4A48 /* Assets.xcassets */; };
 		AFE307DA217271BB004E4A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE307D8217271BB004E4A48 /* LaunchScreen.storyboard */; };
 		AFE307E521727433004E4A48 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307E421727433004E4A48 /* DataFetcher.swift */; };
@@ -24,6 +23,9 @@
 		D7B24B6621730EF000B4BCA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6521730EF000B4BCA6 /* Category.swift */; };
 		D7B24B6921731A5A00B4BCA6 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6821731A5A00B4BCA6 /* QuestionCardView.swift */; };
 		D7B24B6C217324A300B4BCA6 /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */; };
+		D7B24B6E21732E4100B4BCA6 /* CommunityQuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6D21732E4100B4BCA6 /* CommunityQuestionCardView.swift */; };
+		D7B24B70217331AD00B4BCA6 /* QuestionViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6F217331AD00B4BCA6 /* QuestionViewerViewController.swift */; };
+		D7B24B722173388A00B4BCA6 /* SelectionRowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B712173388900B4BCA6 /* SelectionRowProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +33,6 @@
 		33A17383AF06FC254A3F15BD /* Pods-wikiwiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wikiwiki.release.xcconfig"; path = "Pods/Target Support Files/Pods-wikiwiki/Pods-wikiwiki.release.xcconfig"; sourceTree = "<group>"; };
 		AFE307CC217271BA004E4A48 /* wikiwiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wikiwiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE307CF217271BA004E4A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFE307D4217271BA004E4A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFE307D6217271BB004E4A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFE307D9217271BB004E4A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFE307DB217271BB004E4A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		D7B24B6521730EF000B4BCA6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D7B24B6821731A5A00B4BCA6 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
+		D7B24B6D21732E4100B4BCA6 /* CommunityQuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityQuestionCardView.swift; sourceTree = "<group>"; };
+		D7B24B6F217331AD00B4BCA6 /* QuestionViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewerViewController.swift; sourceTree = "<group>"; };
+		D7B24B712173388900B4BCA6 /* SelectionRowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowProtocol.swift; sourceTree = "<group>"; };
 		ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wikiwiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,7 +103,6 @@
 				AFE307E321727427004E4A48 /* DataFetcher */,
 				AFE307E2217273D9004E4A48 /* ViewControllers */,
 				AFE307CF217271BA004E4A48 /* AppDelegate.swift */,
-				AFE307D3217271BA004E4A48 /* Main.storyboard */,
 				AFE307D6217271BB004E4A48 /* Assets.xcassets */,
 				AFE307D8217271BB004E4A48 /* LaunchScreen.storyboard */,
 				AFE307DB217271BB004E4A48 /* Info.plist */,
@@ -112,6 +115,7 @@
 			children = (
 				AFE307E62172745D004E4A48 /* QuestionCreationViewController.swift */,
 				AFE307F42172950A004E4A48 /* ActiveQuestionViewController.swift */,
+				D7B24B6F217331AD00B4BCA6 /* QuestionViewerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +133,7 @@
 			children = (
 				AFE307EA217274D7004E4A48 /* Question.swift */,
 				D7B24B6821731A5A00B4BCA6 /* QuestionCardView.swift */,
+				D7B24B6D21732E4100B4BCA6 /* CommunityQuestionCardView.swift */,
 				D7B24B6521730EF000B4BCA6 /* Category.swift */,
 			);
 			path = Question;
@@ -149,6 +154,7 @@
 				AFE307F02172870E004E4A48 /* EditingFieldView.swift */,
 				AFE307F62172A384004E4A48 /* CategorySelectView.swift */,
 				AFE307F82172A53E004E4A48 /* SelectionRow.swift */,
+				D7B24B712173388900B4BCA6 /* SelectionRowProtocol.swift */,
 			);
 			path = "Question Creation";
 			sourceTree = "<group>";
@@ -231,7 +237,6 @@
 			files = (
 				AFE307DA217271BB004E4A48 /* LaunchScreen.storyboard in Resources */,
 				AFE307D7217271BB004E4A48 /* Assets.xcassets in Resources */,
-				AFE307D5217271BA004E4A48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,16 +296,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B24B70217331AD00B4BCA6 /* QuestionViewerViewController.swift in Sources */,
 				AFE307E521727433004E4A48 /* DataFetcher.swift in Sources */,
 				AFE307EB217274D7004E4A48 /* Question.swift in Sources */,
 				D7B24B6921731A5A00B4BCA6 /* QuestionCardView.swift in Sources */,
 				D7B24B6621730EF000B4BCA6 /* Category.swift in Sources */,
+				D7B24B722173388A00B4BCA6 /* SelectionRowProtocol.swift in Sources */,
 				D7B24B6C217324A300B4BCA6 /* WaitingAnimation.swift in Sources */,
 				AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */,
 				AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */,
 				AFE307F92172A53E004E4A48 /* SelectionRow.swift in Sources */,
 				AFE307F72172A384004E4A48 /* CategorySelectView.swift in Sources */,
 				AFE307FB2172A8C5004E4A48 /* ContentView.swift in Sources */,
+				D7B24B6E21732E4100B4BCA6 /* CommunityQuestionCardView.swift in Sources */,
 				AFE307D0217271BA004E4A48 /* AppDelegate.swift in Sources */,
 				AFE307EF21727EB5004E4A48 /* wikiwiki+UIColor.swift in Sources */,
 				AFE307E72172745D004E4A48 /* QuestionCreationViewController.swift in Sources */,
@@ -310,14 +318,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AFE307D3217271BA004E4A48 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AFE307D4217271BA004E4A48 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AFE307D8217271BB004E4A48 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
