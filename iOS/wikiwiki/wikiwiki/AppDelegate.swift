@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        let viewController = QuestionCreationViewController()
         let mockQuestion = Question(question: "This is an example question that you can ask", choice_1: "This is Option 1", choice_2: "This is Option 2")
-        let viewController = QuestionViewerViewController(questions: [mockQuestion])
+        let viewController = QuestionViewerViewController(questions: [mockQuestion, mockQuestion, mockQuestion])
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = viewController

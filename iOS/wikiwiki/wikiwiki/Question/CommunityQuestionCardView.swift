@@ -90,7 +90,7 @@ public class CommunityQuestionCardView: UIView {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 1, animations: {
                 self.center.x -= 500
-                self.alpha = 0
+//                self.alpha = 0
             })
         }
     }
