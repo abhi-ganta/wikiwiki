@@ -14,7 +14,7 @@ public class WaitingAnimation: UIView {
         self.init(frame: CGRect(x: 0, y: 0, width: 200, height: 400))
         backgroundColor = .white
         layer.borderWidth = 2
-        layer.borderColor = UIColor.wikiwiki.purple.color().cgColor
+        layer.borderColor = UIColor.wikiwiki.blue.color().cgColor
         layer.cornerRadius = 10
     }
     

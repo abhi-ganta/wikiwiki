@@ -18,11 +18,10 @@ public class QuestionCardView: UIView {
     
     public init(question: Question, color: UIColor) {
         super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-//        titleLabel.text = question.question
-        titleLabel.text = "This is a really really really long question that needs answers"
+        titleLabel.text = question.question
         subtitleLabel.text = "Waiting for responses..."
-        choice1label.text = "this is option 1"
-        choice2label.text = "this is option 2"
+        choice1label.text = question.choice_1
+        choice2label.text = question.choice_2
 
         backgroundColor = color
         
@@ -70,13 +69,13 @@ public class QuestionCardView: UIView {
         titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10).isActive = true
         
         choice1label.translatesAutoresizingMaskIntoConstraints = false
-        choice1label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        choice1label.heightAnchor.constraint(equalToConstant: 20).isActive = true
         choice1label.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
         choice1label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         choice1label.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
         
         choice2label.translatesAutoresizingMaskIntoConstraints = false
-        choice2label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        choice2label.heightAnchor.constraint(equalToConstant: 20).isActive = true
         choice2label.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
         choice2label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         choice2label.topAnchor.constraint(equalTo: choice1label.bottomAnchor, constant: 5).isActive = true

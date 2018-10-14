@@ -39,11 +39,13 @@ public class ActiveQuestionViewController: UIViewController {
         
         secondaryLabel.text = "Community Questions"
         secondaryLabel.font = UIFont(name: "Helvetica Neue", size: 25)
-        secondaryLabel.textColor = UIColor.wikiwiki.purple.color()
+        secondaryLabel.textColor = UIColor.wikiwiki.blue.color()
         secondaryLabel.textAlignment = .center
         view.addSubview(secondaryLabel)
         
-        animation.startAnimating()
+        DispatchQueue.main.async {
+            self.animation.startAnimating()
+        }
         view.addSubview(animation)
     }
     
@@ -55,7 +57,7 @@ public class ActiveQuestionViewController: UIViewController {
         
         activeCardView.translatesAutoresizingMaskIntoConstraints = false
         activeCardView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
-        activeCardView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
+        activeCardView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -70).isActive = true
         activeCardView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25).isActive = true
         activeCardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         

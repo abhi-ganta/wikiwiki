@@ -94,10 +94,11 @@ public class QuestionCreationViewController: UIViewController {
             }
         case 4:
             removeCurrent {
+                self.progressBar.removeFromSuperview()
                 self.question.send()
                 print("finished")
 
-                
+                self.present(ActiveQuestionViewController(activeQuestion: self.question), animated: true, completion: nil)
             }
         default:
             break
