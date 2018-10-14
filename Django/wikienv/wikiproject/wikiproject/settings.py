@@ -25,7 +25,7 @@ SECRET_KEY = 'xi64e$mocq!t_xio1@duv==pue_zjaf9c8e7n724(xn7ak1ng0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['35.227.40.233']
 
 
 # Application definition
