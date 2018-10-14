@@ -17,7 +17,7 @@ public protocol QuestionCreationDelegate {
 public class QuestionCreationViewController: UIViewController {
     
     private var count = 0
-    private var editingView: ContentViewProtocol = EditingField(title: "", actionLabel: "", color: UIColor.wikiwiki.blue.color())
+    private var editingView: ContentView = EditingField(title: "", actionLabel: "", color: UIColor.wikiwiki.blue.color())
     private var question: Question = Question(question: "", choice_1: "", choice_2: "")
     private var progressBar: UIView = UIView()
     
@@ -36,7 +36,8 @@ public class QuestionCreationViewController: UIViewController {
     
     private func setUpView() {
         editingView = EditingField(title: "Enter Your Question", actionLabel: "Add Options", color: UIColor.wikiwiki.blue.color())
-
+//        editingView = CategorySelectView(withOption: "")
+        
         editingView.delegate = self
         view.addSubview(editingView)
         
@@ -52,11 +53,11 @@ public class QuestionCreationViewController: UIViewController {
         editingView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        barWidthConstraint = progressBar.widthAnchor.constraint(equalToConstant: view.frame.width / 3)
+        barWidthConstraint = progressBar.widthAnchor.constraint(equalToConstant: view.frame.width/2)
         barWidthConstraint?.isActive = true
         progressBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         progressBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
-        progressBar.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        progressBar.heightAnchor.constraint(equalToConstant: 10).isActive = true
     }
     
     fileprivate func presentNext(content: String) {
@@ -78,7 +79,7 @@ public class QuestionCreationViewController: UIViewController {
         case 2:
             question.choice_1 = content
             removeCurrent {
-                self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Finish", color: UIColor.wikiwiki.green.color())
+                self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Select Category", color: UIColor.wikiwiki.green.color())
                 DispatchQueue.main.async {
                     self.barWidthConstraint?.constant = self.view.frame.width
                     self.progressBar.backgroundColor = UIColor.wikiwiki.green.color()
@@ -92,9 +93,23 @@ public class QuestionCreationViewController: UIViewController {
             }
         case 3:
             question.choice_2 = content
-            removeCurrent {}
-            question.send()
+            removeCurrent {
+                self.editingView = CategorySelectView(withOption: "")
+                DispatchQueue.main.async {
+                    self.barWidthConstraint?.constant = self.view.frame.width
+                    self.progressBar.backgroundColor = UIColor.wikiwiki.purple.color()
+                    
+                    self.progressBar.setNeedsUpdateConstraints()
+                    self.progressBar.layoutIfNeeded()
+                }
+                self.addNextView()
+
+            }
+        case 4:
+            removeCurrent {
+            }
             print("finished")
+
         default:
             break
         }

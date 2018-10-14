@@ -9,27 +9,53 @@
 import Foundation
 import UIKit
 
-public class CategorySelectView: UIView, ContentViewProtocol {
+public class CategorySelectView: ContentView {
     
     private var titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     private let actionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-    private var accentColor: UIColor = UIColor()
-    private var rows: [SelectionRow]!
+    private var accentColor: UIColor = UIColor.wikiwiki.purple.color()
+    private var rows: [SelectionRow] = [ SelectionRow(option: "Entertainment"), SelectionRow(option: "Tech"), SelectionRow(option: "Shopping"), SelectionRow(option: "Food"), SelectionRow(option: "Activity"), SelectionRow(option: "Other")]
     
-    public var delegate: QuestionCreationDelegate?
-    
-    public init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        rows[0] = SelectionRow(option: "Entertainment")
-        rows[1] = SelectionRow(option: "Shopping")
-        rows[2] = SelectionRow(option: "Food")
-        rows[3] = SelectionRow(option: "Activity")
-        rows[4] = SelectionRow(option: "Other")
+    public init(withOption: String) {
+        super.init()
+        
+        titleLabel.text = "Select Category"
+        actionButton.setTitle("Finish", for: .normal)
+        
+        setUpView()
+        setUpConstraints()
     }
     
     @objc
     private func tappedButton() {
         delegate?.pressedAction(enteredContent: "")
+    }
+    
+    private func setUpConstraints() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
+        
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        actionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        actionButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        actionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80).isActive = true
+        
+        rows[0].translatesAutoresizingMaskIntoConstraints = false
+        rows[0].widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        rows[0].leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        rows[0].heightAnchor.constraint(equalToConstant: 60).isActive = true
+        rows[0].topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
+        
+        for i in 1..<6 {
+            rows[i].translatesAutoresizingMaskIntoConstraints = false
+            rows[i].widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+            rows[i].leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            rows[i].heightAnchor.constraint(equalToConstant: 60).isActive = true
+            rows[i].topAnchor.constraint(equalTo: rows[i-1].bottomAnchor, constant: 10).isActive = true
+        }
     }
     
     private func setUpView() {

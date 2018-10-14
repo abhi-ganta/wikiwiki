@@ -9,17 +9,15 @@
 import Foundation
 import UIKit
 
-public class EditingField: UIView, ContentViewProtocol {
+public class EditingField: ContentView {
     
     private var titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     private var inputField: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     private let actionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     private var accentColor: UIColor = UIColor()
     
-    public var delegate: QuestionCreationDelegate?
-    
     public init(title: String, actionLabel: String, color: UIColor) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        super.init()
         backgroundColor = .white
         self.titleLabel.text =  title
         self.actionButton.setTitle(actionLabel, for: .normal)
