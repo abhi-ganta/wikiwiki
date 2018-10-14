@@ -72,4 +72,6 @@ def optimizeFeedApi(requestJson):
         }
         predictionReturn.append(oneProb)
 
+    print(returnResponse)
+
     return returnResponse
