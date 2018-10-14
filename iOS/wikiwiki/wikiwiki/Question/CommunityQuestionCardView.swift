@@ -40,6 +40,16 @@ public class CommunityQuestionCardView: UIView {
     @objc
     private func swipedUp() {
         print("swipe")
+        UIView.animate(withDuration: 0.5, animations: {
+            self.center.y -= 1000
+        }, completion: { success in
+            self.removeFromSuperview()
+            let fetcher = DataFetcher(url: "https://bom29zmpy6.execute-api.us-west-1.amazonaws.com/default/mh-skip")
+            fetcher.postData(dataToSend: [
+                "uid"       :   "brian",
+                "poll_id"   :   self.question_stored.question_id
+            ])
+        })
     }
     
     private func setUpViews() {
