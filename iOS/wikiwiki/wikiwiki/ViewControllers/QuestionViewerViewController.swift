@@ -34,12 +34,16 @@ public class QuestionViewerViewController: UIViewController {
         return questions
     }
     
-    public override func viewDidLoad() {
-        view.backgroundColor = .white
-        
+    public override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.animation.startAnimating()
         }
+    }
+    
+    public override func viewDidLoad() {
+        view.backgroundColor = .white
+        
+
         view.addSubview(animation)
         
         animation.translatesAutoresizingMaskIntoConstraints = false
