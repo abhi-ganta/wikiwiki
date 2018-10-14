@@ -23,6 +23,7 @@
 		AFE307FB2172A8C5004E4A48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE307FA2172A8C5004E4A48 /* ContentView.swift */; };
 		D7B24B6621730EF000B4BCA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6521730EF000B4BCA6 /* Category.swift */; };
 		D7B24B6921731A5A00B4BCA6 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6821731A5A00B4BCA6 /* QuestionCardView.swift */; };
+		D7B24B6C217324A300B4BCA6 /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		AFE307FA2172A8C5004E4A48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D7B24B6521730EF000B4BCA6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D7B24B6821731A5A00B4BCA6 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
+		D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
 		ED66D2180C558D45760C6521 /* Pods_wikiwiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wikiwiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 		AFE307CE217271BA004E4A48 /* wikiwiki */ = {
 			isa = PBXGroup;
 			children = (
+				D7B24B6A2173248C00B4BCA6 /* Animating Components */,
 				D7B24B6721731A2F00B4BCA6 /* Question Creation */,
 				AFE307ED21727E7C004E4A48 /* Color */,
 				AFE307EC217274DE004E4A48 /* Question */,
@@ -148,6 +151,14 @@
 				AFE307F82172A53E004E4A48 /* SelectionRow.swift */,
 			);
 			path = "Question Creation";
+			sourceTree = "<group>";
+		};
+		D7B24B6A2173248C00B4BCA6 /* Animating Components */ = {
+			isa = PBXGroup;
+			children = (
+				D7B24B6B217324A300B4BCA6 /* WaitingAnimation.swift */,
+			);
+			path = "Animating Components";
 			sourceTree = "<group>";
 		};
 		E0A9ACD37F77905FEFE5273B /* Frameworks */ = {
@@ -284,6 +295,7 @@
 				AFE307EB217274D7004E4A48 /* Question.swift in Sources */,
 				D7B24B6921731A5A00B4BCA6 /* QuestionCardView.swift in Sources */,
 				D7B24B6621730EF000B4BCA6 /* Category.swift in Sources */,
+				D7B24B6C217324A300B4BCA6 /* WaitingAnimation.swift in Sources */,
 				AFE307F12172870E004E4A48 /* EditingFieldView.swift in Sources */,
 				AFE307F52172950A004E4A48 /* ActiveQuestionViewController.swift in Sources */,
 				AFE307F92172A53E004E4A48 /* SelectionRow.swift in Sources */,
