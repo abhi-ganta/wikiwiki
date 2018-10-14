@@ -13,6 +13,7 @@ public protocol QuestionProtocol {
     var question: String { get set }
     var choice_1: String { get set }
     var choice_2: String { get set }
+    var categories: [Category]? { get set }
     var question_id: String? { get }
     var remainingSeconds: String? { get }
 }
@@ -24,6 +25,7 @@ public class Question: QuestionProtocol {
     public var choice_2: String
     public private(set) var question_id: String?
     public private(set) var remainingSeconds: String?
+    public var categories: [Category]?
     
     public init(question: String, choice_1: String, choice_2: String) {
         self.question = question
@@ -37,10 +39,21 @@ public class Question: QuestionProtocol {
     }
     
     private func compiledData() -> [String: String] {
-        let data = [
-            "option1"  : choice_1,
-            "option2"  : choice_2,
-            "question" : question
+        guard let categories = categories else {
+            print("Categories not initialized")
+            return [:]
+        }
+        let data: [String : String] = [
+            "option1"   : choice_1,
+            "option2"   : choice_2,
+            "question"  : question,
+            "c0"        : categories[0].selected_binary(),
+            "c1"        : categories[1].selected_binary(),
+            "c2"        : categories[2].selected_binary(),
+            "c3"        : categories[3].selected_binary(),
+            "c4"        : categories[4].selected_binary(),
+            "c5"        : categories[5].selected_binary(),
+            "c6"        : categories[6].selected_binary()
         ]
         
         return data
