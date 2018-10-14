@@ -37,7 +37,6 @@ public class QuestionCreationViewController: UIViewController {
     
     private func setUpView() {
         editingView = EditingField(title: "Enter Your Question", actionLabel: "Add Options", color: UIColor.wikiwiki.blue.color())
-//        editingView = CategorySelectView(withOption: "")
         
         editingView.delegate = self
         view.addSubview(editingView)

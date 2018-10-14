@@ -14,7 +14,15 @@ public class CategorySelectView: ContentView {
     private var titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     private let actionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     private var accentColor: UIColor = UIColor.wikiwiki.purple.color()
-    private var rows: [SelectionRow] = [ SelectionRow(option: "Entertainment"), SelectionRow(option: "Shopping"), SelectionRow(option: "Food"), SelectionRow(option: "Activity"), SelectionRow(option: "Tech"), SelectionRow(option: "Education"), SelectionRow(option: "Other")]
+    private var rows: [SelectionRow] = [
+        SelectionRow(option: "Activities"),
+        SelectionRow(option: "Education"),
+        SelectionRow(option: "Entertainment"),
+        SelectionRow(option: "Food"),
+        SelectionRow(option: "Shopping"),
+        SelectionRow(option: "Tech"),
+        SelectionRow(option: "Other")
+    ]
     
     public init(withOption: String) {
         super.init()

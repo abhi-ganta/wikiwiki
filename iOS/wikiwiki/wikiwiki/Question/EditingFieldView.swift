@@ -53,6 +53,7 @@ public class EditingField: ContentView {
         
         inputField.textAlignment = .center
         inputField.textColor = accentColor
+        inputField.tintColor = accentColor
         inputField.font = UIFont(name: "Helvetica Neue", size: 50)
         inputField.text = ""
         addSubview(inputField)
