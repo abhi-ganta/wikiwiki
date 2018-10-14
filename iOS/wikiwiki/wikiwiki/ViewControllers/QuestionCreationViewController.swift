@@ -53,9 +53,8 @@ public class QuestionCreationViewController: UIViewController {
         editingView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        barWidthConstraint = progressBar.widthAnchor.constraint(equalToConstant: view.frame.width/2)
-        barWidthConstraint?.isActive = true
         progressBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        progressBar.rightAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         progressBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
         progressBar.heightAnchor.constraint(equalToConstant: 10).isActive = true
     }
@@ -68,10 +67,6 @@ public class QuestionCreationViewController: UIViewController {
                 self.editingView = EditingField(title: "Enter Option 1", actionLabel: "Add Option 2", color: UIColor.wikiwiki.red.color())
                 DispatchQueue.main.async {
                     self.updateProgressBarColor(color: UIColor.wikiwiki.red.color())
-                    self.barWidthConstraint?.constant = self.view.frame.width * 2 / 3
-                    
-                    self.progressBar.setNeedsUpdateConstraints()
-                    self.progressBar.layoutIfNeeded()
                 }
                 
                 self.addNextView()
@@ -81,11 +76,7 @@ public class QuestionCreationViewController: UIViewController {
             removeCurrent {
                 self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Select Category", color: UIColor.wikiwiki.green.color())
                 DispatchQueue.main.async {
-                    self.barWidthConstraint?.constant = self.view.frame.width
                     self.updateProgressBarColor(color: UIColor.wikiwiki.green.color())
-
-                    self.progressBar.setNeedsUpdateConstraints()
-                    self.progressBar.layoutIfNeeded()
                 }
                 
                 self.addNextView()
@@ -96,22 +87,18 @@ public class QuestionCreationViewController: UIViewController {
             removeCurrent {
                 self.editingView = CategorySelectView(withOption: "")
                 DispatchQueue.main.async {
-                    self.barWidthConstraint?.constant = self.view.frame.width
                     self.updateProgressBarColor(color: UIColor.wikiwiki.purple.color())
-
-                    self.progressBar.setNeedsUpdateConstraints()
-                    self.progressBar.layoutIfNeeded()
                 }
                 self.addNextView()
 
             }
         case 4:
-            removeCurrent {}
-            
-            question.send()
+            removeCurrent {
+                question.send()
+                print("finished")
 
-            print("finished")
 
+            }
         default:
             break
         }
@@ -126,7 +113,8 @@ public class QuestionCreationViewController: UIViewController {
     }
     
     private func removeCurrent(completion: @escaping () -> ()) {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
+            self.editingView.center.x -= 500
             self.editingView.alpha = 0
         }, completion: { success in
             self.editingView.removeFromSuperview()
@@ -137,7 +125,11 @@ public class QuestionCreationViewController: UIViewController {
     private func addNextView() {
         self.editingView.delegate = self
         self.view.addSubview(self.editingView)
+        editingView.alpha = 0
         self.setUpConstraints()
+        UIView.animate(withDuration: 0.6, animations: {
+            self.editingView.alpha = 1
+        })
     }
     
     required init?(coder aDecoder: NSCoder) {
