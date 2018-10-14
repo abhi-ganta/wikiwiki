@@ -28,7 +28,7 @@ public class QuestionViewerViewController: UIViewController {
         var questions = [Question]()
         let cardsArray = data["finalCardArr"].arrayValue
         for card in cardsArray {
-            questions.append(Question(question: card["question"].stringValue, choice_1: card["option1"].stringValue, choice_2: card["option2"].stringValue, uid: card["poll_id"].stringValue, color: UIColor.wikiwiki_randomColor()))
+            questions.append(Question(question: card["question"].stringValue, choice_1: card["option1"].stringValue, choice_2: card["option2"].stringValue, uid: card["poll_id"].stringValue, color: UIColor.wikiwiki_randomColor(), count1: card["count1"].intValue, count2: card["count2"].intValue))
         }
         
         return questions

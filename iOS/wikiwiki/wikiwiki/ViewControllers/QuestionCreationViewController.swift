@@ -19,7 +19,7 @@ public class QuestionCreationViewController: UIViewController {
     
     private var count = 0
     private var editingView: ContentView = EditingField(title: "", actionLabel: "", color: UIColor.wikiwiki.blue.color())
-    private var question: Question = Question(question: "", choice_1: "", choice_2: "", uid: "", color: .white)
+    private var question: Question = Question(question: "", choice_1: "", choice_2: "", uid: "", color: .white, count1: 0, count2: 0)
     private var progressBar: UIView = UIView()
     
     private var barWidthConstraint: NSLayoutConstraint?

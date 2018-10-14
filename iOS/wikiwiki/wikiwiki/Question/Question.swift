@@ -19,6 +19,8 @@ public protocol QuestionProtocol {
     var remainingSeconds: String? { get }
     var selectedOption: Int { get set }
     var color: UIColor { get set }
+    var option1_count: Int { get set }
+    var option2_count: Int { get set }
 }
 
 public class Question: QuestionProtocol {
@@ -32,8 +34,10 @@ public class Question: QuestionProtocol {
     public private(set) var remainingSeconds: String?
     public var categories: [Category]?
     public var color: UIColor
+    public var option1_count: Int
+    public var option2_count: Int
     
-    public init(question: String, choice_1: String, choice_2: String, uid: String, color: UIColor) {
+    public init(question: String, choice_1: String, choice_2: String, uid: String, color: UIColor, count1: Int, count2: Int) {
         self.question = question
         self.choice_1 = choice_1
         self.choice_2 = choice_2
@@ -41,6 +45,8 @@ public class Question: QuestionProtocol {
         self.selectedOption = 0
         self.uid = "joseph"
         self.color = color
+        option1_count = count1
+        option2_count = count2
     }
     
     public func send() {

@@ -110,11 +110,11 @@ extension CommunityQuestionCardView: SelectionRowDelegateProtocol {
             question_stored.selectedOption = 2
         }
 //        print(question_stored.vote())
-        let random100 = Int.random(in: 0 ..< 100)
-        choice1.categoryLabel.text = "\(random100)%"
-        choice2.categoryLabel.text = "\(100-random100)%"
+        let total = question_stored.option1_count + question_stored.option2_count
+        choice1.categoryLabel.text = "\(question_stored.option1_count / total * 100)%"
+        choice2.categoryLabel.text = "\(question_stored.option2_count / total * 100)%"
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.dismiss()
 
         })
