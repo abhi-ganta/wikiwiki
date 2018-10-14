@@ -32,21 +32,20 @@ def jobPredict(X_train, y_train, X_predict):
     return prediction_prob[:,1], accuracy
 
 def optimizeFeedApi(requestJson):
-    testString = {
-        'aLen': 28,
-        'c0': 1,
-        'c1': 0,
-        'c2': 0,
-        'c3': 1,
-        'c4': 0,
-        'poll_id': '-LOjXU_uxcj7I_bT23Q_',
-        'qLen': 23,
-        'voted': 1
-    }
 
-    print(requestJson)
+    oldData = requestJson['old']
 
+    X_cols = ['aLen', 'c0', 'c1', 'c2', 'c3', 'c4', 'qLen']
 
+    old = pd.DataFrame(oldData)
+
+    X = old[X_cols]
+    y = old['voted']
+
+    # newthing = newthing.transpose()
+
+    print (X)
+    print (y)
 
     # trainData = requestJson['old-data']
     # testData = requestJson['to-predict']
