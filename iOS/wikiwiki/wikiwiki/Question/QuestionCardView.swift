@@ -30,7 +30,7 @@ public class QuestionCardView: UIView {
     private func setUpViews() {
         layer.cornerRadius = 15
         
-        titleLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+        titleLabel.font = UIFont(name: "Helvetica Neue", size: 25)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
