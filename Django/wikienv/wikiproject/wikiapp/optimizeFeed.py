@@ -14,9 +14,9 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
 def feedOptimize(X_train, y_train, X_predict):
-    model = LogisticRegression()
+    # model = LogisticRegression()
 
-    # model = RandomForestClassifier(n_estimators = 400, max_depth = 70, max_features = 'auto')
+    model = RandomForestClassifier(n_estimators = 400, max_depth = 70, max_features = 'auto')
 
     # model = GradientBoostingClassifier(n_estimators = 1000, max_depth = 3, learning_rate = 0.1)
 
