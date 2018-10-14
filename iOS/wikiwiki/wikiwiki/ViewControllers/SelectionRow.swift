@@ -11,7 +11,7 @@ import UIKit
 
 public class SelectionRow: UIView {
     private var selectionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-    private var categoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+    public var categoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
 
     public var selected: Bool = false
     private var accentColor: UIColor = UIColor.wikiwiki.purple.color()

@@ -11,11 +11,12 @@ import Foundation
 public struct Category {
     var cateogry_string: String
     var selected: Bool
-    var selected_binary: Int {
+    
+    func selected_binary() -> String {
         if selected {
-            return 1
+            return "1"
         } else {
-            return 0
+            return "0"
         }
     }
 }

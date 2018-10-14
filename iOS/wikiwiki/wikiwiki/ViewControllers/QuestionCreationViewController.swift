@@ -68,7 +68,7 @@ public class QuestionCreationViewController: UIViewController {
             removeCurrent {
                 self.editingView = EditingField(title: "Enter Option 1", actionLabel: "Add Option 2", color: UIColor.wikiwiki.red.color())
                 DispatchQueue.main.async {
-                    self.progressBar.backgroundColor = UIColor.wikiwiki.red.color()
+                    self.updateProgressBarColor(color: UIColor.wikiwiki.red.color())
                     self.barWidthConstraint?.constant = self.view.frame.width * 2 / 3
                     
                     self.progressBar.setNeedsUpdateConstraints()
@@ -83,7 +83,7 @@ public class QuestionCreationViewController: UIViewController {
                 self.editingView = EditingField(title: "Enter Option 2", actionLabel: "Select Category", color: UIColor.wikiwiki.green.color())
                 DispatchQueue.main.async {
                     self.barWidthConstraint?.constant = self.view.frame.width
-                    self.progressBar.backgroundColor = UIColor.wikiwiki.green.color()
+                    self.updateProgressBarColor(color: UIColor.wikiwiki.green.color())
 
                     self.progressBar.setNeedsUpdateConstraints()
                     self.progressBar.layoutIfNeeded()
@@ -98,8 +98,8 @@ public class QuestionCreationViewController: UIViewController {
                 self.editingView = CategorySelectView(withOption: "")
                 DispatchQueue.main.async {
                     self.barWidthConstraint?.constant = self.view.frame.width
-                    self.progressBar.backgroundColor = UIColor.wikiwiki.purple.color()
-                    
+                    self.updateProgressBarColor(color: UIColor.wikiwiki.purple.color())
+
                     self.progressBar.setNeedsUpdateConstraints()
                     self.progressBar.layoutIfNeeded()
                 }
@@ -107,12 +107,22 @@ public class QuestionCreationViewController: UIViewController {
 
             }
         case 4:
-            removeCurrent {
-            }
+            removeCurrent {}
+            
+            question.send()
+
             print("finished")
 
         default:
             break
+        }
+    }
+    
+    private func updateProgressBarColor(color: UIColor) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 1, animations: {
+                self.progressBar.backgroundColor = color
+            })
         }
     }
     
@@ -137,8 +147,10 @@ public class QuestionCreationViewController: UIViewController {
 }
 
 extension QuestionCreationViewController: QuestionCreationDelegate {
-    public func pressedAction(enteredContentDictionary: [String : String]) {
-        <#code#>
+    public func pressedAction(enteredContentDictionary: [Category]) {
+        question.categories = enteredContentDictionary
+        count += 1
+        presentNext(content: "")
     }
     
     public func presentError() {
